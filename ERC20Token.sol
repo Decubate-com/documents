@@ -2,7 +2,7 @@
 
 //** Whitelisted ERC20 TOKEN for Mainnet */
 
-pragma solidity 0.8.10;
+pragma solidity 0.8.17;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -41,7 +41,7 @@ contract ERC20Token is ERC20, Whitelisted {
       _liquidityToken
     );
 
-    setPairAddress(pair, true);
+    isPair[pair] = true;
   }
 
   /**

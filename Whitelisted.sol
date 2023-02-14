@@ -2,12 +2,11 @@
 
 //** Decubate Whitelisted Contract */
 //** Author Aceson */
-pragma solidity 0.8.10;
+pragma solidity 0.8.17;
 
-import "@openzeppelin/contracts/utils/Context.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Whitelisted is Context, Ownable {
+contract Whitelisted is Ownable {
     mapping(address => bool) public isWhitelisted;
     mapping(address => bool) public isBlackListed;
     mapping(address => bool) public isPair;
@@ -199,7 +198,7 @@ contract Whitelisted is Context, Ownable {
     /// @dev true = is pair, false = not pair
     /// @param addr Address you want to change status
     /// @param status Whether pair or not
-    function setPairAddress(address addr, bool status) internal {
+    function setPairAddress(address addr, bool status) external onlyOwner {
         isPair[addr] = status;
     }
 }
